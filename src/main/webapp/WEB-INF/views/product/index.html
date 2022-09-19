@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body id="product">
+<h1>List Product</h1>
+<a class="create" th:href="@{/create}">Create product</a>
+
+<div class="grid">
+  <div class="grid__row">
+    <div class="grid__column-2 container" th:each="product : ${productList}">
+      <a class="container__link" th:href="@{/details/__${product.id}__}">
+        <div class="img"><img th:src="@{'/image/' + ${product.img}}" alt=""></div>
+        <div class="name" th:text="${product.name}"></div>
+        <div class="price">
+          <span class="price__title">Giá: </span>
+          <span th:text="${product.price}"></span>
+          <span>VND</span>
+        </div>
+        <div class="action">
+          <a class="update" th:href="@{/update/__${product.id}__}">Update</a>
+          <a class="delete" th:href="@{/delete/__${product.id}__}">Delete</a>
+
+        </div>
+      </a>
+
+    </div>
+
+  </div>
+</div>
+
+</body>

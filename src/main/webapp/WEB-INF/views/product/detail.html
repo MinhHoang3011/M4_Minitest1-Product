@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Detail</title>
+</head>
+<body>
+<h1>Details product</h1>
+<div class="link">
+    <a class="home" th:href="@{/home}">Home</a>
+    <a class="update" th:href="@{/update/__${product.id}__}">Update</a>
+</div>
+
+
+<div class="grid">
+    <div class="grid__row">
+        <div class="grid__column-4">
+            <div class="img"><img th:src="@{'/image/' + ${product.img}}" alt=""></div>
+        </div>
+
+        <div class="grid__column-8">
+            <div class="name" th:text="${product.name}"></div>
+            <div class="price" >
+                <span class="price__title">Giá: </span>
+                <span th:text="${product.price}"></span>
+                <span>VND</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
